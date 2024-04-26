@@ -14,7 +14,26 @@ over encrypted connections.
 - Logging: Utilizes zerolog for structured and console-friendly logging.
 - HTTP/2 Support: Ready for HTTP/2 communications with backend services.
 
-## Requirements
+## Downlaod & Install
+
+To install FrontDoor, you can download the latest release from:
+
+[https://github.com/Nitecon/frontdoor/releases](https://github.com/Nitecon/frontdoor/releases)
+
+If you are on linux you could do something like this to get the latest release:
+
+```bash
+wget -qO- $(curl -s https://api.github.com/repos/Nitecon/frontdoor/releases/latest | grep "linux_amd64"|grep https | cut -d : -f 2,3 | tr -d \" | awk '{$1 = $1};1') |tar -xvz
+```
+
+Then you just need to extract and move it to an appropriate location.
+
+```bash
+tar xf frontdoor.*.tar.gz
+sudo cp -f frontdoor /usr/local/bin/frontdoor
+```
+
+## Prefer building over downloading
 
 - Go 1.15 or higher.
 - Systemd (for service management on Linux).
@@ -33,6 +52,11 @@ cd frontdoor
 
 ```bash
 go build -ldflags "-s -w" -o frontdoor ./main.go
+```
+
+Then you just need to extract and move it to an appropriate location.
+
+```bash
 sudo cp -f frontdoor /usr/local/bin/frontdoor
 ```
 
