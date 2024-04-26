@@ -32,7 +32,7 @@ cd frontdoor
 ### 2.Build the binary:
 
 ```bash
-go build -ldflags "-s -w" -o frontdoor
+go build -ldflags "-s -w" -o frontdoor ./main.go
 sudo cp -f frontdoor /usr/local/bin/frontdoor
 ```
 

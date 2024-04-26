@@ -1,6 +1,6 @@
-project_name: bruce
+project_name: frontdoor
 builds:
-  - main: ./cmd/
+  - main: ./
     ldflags:
       - -s -w -X main.version={{.Version}}
     env: [CGO_ENABLED=0]
