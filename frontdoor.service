@@ -1,0 +1,14 @@
+[Unit]
+Description=Front Door Web Instance
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=web
+Group=web
+TimeoutStartSec=10
+Restart=always
+ExecStart=/usr/local/bin/frontdoor -k /etc/ssl/domain.key -c /etc/ssl/domain.crt -b 127.0.0.1:8080
+
+[Install]
+WantedBy=multi-user.target
